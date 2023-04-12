@@ -81,7 +81,8 @@ class Dataset:
 
 """initialize model, and train the model"""
 if __name__ == "__main__":
-    run_name = 'simpleGPT'
+    model_args = dict(block_size=256, n_layer=12, n_head=4, n_embd=256)
+    run_name = f'GPT_{model_args["block_size"]}_{model_args["n_layer"]}_{model_args["n_head"]}_{model_args["n_embd"]}'
     wandb.init(project="24Game", name=run_name)
 
     MAXEPOCH = 1000
@@ -100,7 +101,7 @@ if __name__ == "__main__":
     BestLoss = np.inf
     train_data, validation_data, test_data = get_train_valid_test_split()
 
-    model = GPT(GPTConfig()).to(device)
+    model = GPT(GPTConfig(**model_args)).to(device)
     optimizer = model.configure_optimizers(weight_decay, learning_rate, (beta1, beta2), device_type)
     optimizer.zero_grad()
     if compile:
