@@ -26,3 +26,5 @@ for idx in range(20):
     print(sample_examples_for_gpt4(random_seed=idx, candidate_idx=idx))
 
 # find the GPT4 answers here https://shareg.pt/in5gKsC (Spoiler: GPT4 failed on all of them)
+# https://sharegpt.com/c/kd3UA8B with more hints, and step by step guidance, still struggles more often than not, but sometimes can solve the problems.
+## and got switched to GPT3.5 due to message cap on the last message so stopped.
